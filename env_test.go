@@ -6,7 +6,12 @@ import (
 	"testing"
 )
 
-func TestOutputFilename(t *testing.T) {
+func TestTestOutputFilename(t *testing.T) {
+	require.Equal(t, "foo_generated_test.go", TestOutputFilename("foo.go"))
+	require.Equal(t, "foo.sh_generated_test.go", TestOutputFilename("foo.sh"))
+}
+
+func Test_OutputFilename(t *testing.T) {
 	for _, c := range []struct {
 		name, input, expected string
 	}{

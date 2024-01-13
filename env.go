@@ -11,6 +11,10 @@ func OutputFilename(original string) string {
 	return strings.TrimSuffix(original, ".go") + "_generated.go"
 }
 
+func TestOutputFilename(original string) string {
+	return strings.TrimSuffix(original, ".go") + "_generated_test.go"
+}
+
 var (
 	EnvDefaultGoPackage = "generator_helpers"
 	EnvDefaultGoFile    = ""
