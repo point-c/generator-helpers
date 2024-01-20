@@ -54,6 +54,36 @@ value := generator_helpers.Must(getValue())
 generator_helpers.Check(err)
 ```
 
+### Go Code Formatting
+
+The `generator_helpers` package offers functionalities to format Go source code. Below is an example of how to use these functions:
+
+#### Formatting Go Source Code
+
+To format a Go source code byte slice:
+
+```go
+sourceCode := []byte("package main\nimport \"fmt\"\nfunc main() {fmt.Println(\"hello world\")}")
+formattedCode, err := generator_helpers.GoFmt(sourceCode)
+if err != nil {
+    // Handle formatting error
+}
+// Use formattedCode...
+```
+
+#### Formatting Source Code from an `io.Reader`
+
+If you have Go source code in an `io.Reader`, you can format it as follows:
+
+```go
+var reader io.Reader = ... // your io.Reader with Go source code
+formattedCode, err := generator_helpers.GoFmtReader(reader)
+if err != nil {
+    // Handle formatting error
+}
+// Use formattedCode...
+```
+
 ## Testing
 
 The package includes tests that demonstrate its functionality. Use Go's testing tools to run the tests:
