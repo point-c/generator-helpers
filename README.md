@@ -1,6 +1,6 @@
 # generator_helpers
 
-[![Go Reference](https://img.shields.io/badge/godoc-reference-%23007d9c.svg)](https://point-c.github.io/generator_helpers)
+[![Go Reference](https://img.shields.io/badge/godoc-reference-%23007d9c.svg)](https://point-c.github.io/generator-helpers)
 
 ## Overview
 
