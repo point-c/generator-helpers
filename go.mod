@@ -31,3 +31,5 @@ require (
 	golang.org/x/tools v0.4.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
+
+retract [v0.0.1, v0.0.2] // dev versions
