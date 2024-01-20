@@ -7,8 +7,8 @@ import (
 )
 
 func TestTestOutputFilename(t *testing.T) {
-	require.Equal(t, "foo_generated_test.go", TestOutputFilename("foo.go"))
-	require.Equal(t, "foo.sh_generated_test.go", TestOutputFilename("foo.sh"))
+	require.Equal(t, "foo_test.go", TestOutputFilename("foo.go"))
+	require.Equal(t, "foo.sh_test.go", TestOutputFilename("foo.sh"))
 }
 
 func Test_OutputFilename(t *testing.T) {
