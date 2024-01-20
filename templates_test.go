@@ -47,6 +47,8 @@ func TestGenerate(t *testing.T) {
 	tmpl := NewTemplate[*text_template.Template](testFS, nil)
 	data := struct{ Name string }{"Test"}
 	outFile := filepath.Join(t.TempDir(), "output.txt")
+	// Clean up
+	defer func() { require.NoError(t, os.Remove(outFile)) }()
 
 	Generate(tmpl, data, "test.gotmpl", outFile)
 	require.Empty(t, lbuf.Bytes(), lbuf.String())
@@ -55,8 +57,6 @@ func TestGenerate(t *testing.T) {
 	_, err := os.Stat(outFile)
 	require.NoError(t, err)
 
-	// Clean up
-	require.NoError(t, os.Remove(outFile))
 }
 
 func TestExecTemplate(t *testing.T) {
@@ -65,16 +65,20 @@ func TestExecTemplate(t *testing.T) {
 	var lbuf bytes.Buffer
 	slog.SetDefault(slog.New(slog.NewTextHandler(&lbuf, nil)))
 	tmpl := NewTemplate[*text_template.Template](testFS, nil)
+
 	data := struct{ Name string }{"Test"}
+	t.Run("no error", func(t *testing.T) {
+		result := ExecTemplate(tmpl, data, "test.gotmpl")
+		require.NotEmpty(t, result)
+		require.Empty(t, lbuf.Bytes())
+	})
 
-	result := ExecTemplate(tmpl, data, "test.gotmpl")
-	require.NotEmpty(t, result)
-	require.Empty(t, lbuf.Bytes())
-
-	data.Name = "{}"
-	result = ExecTemplate(tmpl, data, "test.gotmpl")
-	require.NotEmpty(t, result)
-	require.NotEmpty(t, lbuf.Bytes())
+	t.Run("error", func(t *testing.T) {
+		data.Name = "{}"
+		result := ExecTemplate(tmpl, data, "test.gotmpl")
+		require.NotEmpty(t, result)
+		require.NotEmpty(t, lbuf.Bytes())
+	})
 }
 
 func TestExec(t *testing.T) {
@@ -85,15 +89,21 @@ func TestExec(t *testing.T) {
 
 	exit = func(int) { t.Fatal() }
 	tmpl := NewTemplate[*text_template.Template](testFS, nil)
-	data := struct{ Name string }{"Test"}
 
-	buf, err := Exec(tmpl, data, "test.gotmpl")
-	require.NoError(t, err)
-	require.NotEmpty(t, buf)
-	require.Empty(t, lbuf.Bytes())
+	t.Run("no error", func(t *testing.T) {
+		lbuf.Reset()
+		data := struct{ Name string }{"Test"}
+		buf, err := Exec(tmpl, data, "test.gotmpl")
+		require.NoError(t, err)
+		require.NotEmpty(t, buf)
+		require.Empty(t, lbuf.Bytes())
+	})
 
-	buf, err = Exec(tmpl, struct{}{}, "test.gotmpl")
-	require.Error(t, err)
-	require.Empty(t, buf)
-	require.Empty(t, lbuf.Bytes())
+	t.Run("error", func(t *testing.T) {
+		lbuf.Reset()
+		buf, err := Exec(tmpl, struct{}{}, "test.gotmpl")
+		require.Error(t, err)
+		require.Empty(t, buf)
+		require.Empty(t, lbuf.Bytes())
+	})
 }

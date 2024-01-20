@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>generator_helpers - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="/generator_helpers/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/generator_helpers/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.21.6";</script>
+<script src="/generator_helpers/lib/godoc/godocs.js" defer></script>
+
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/generator_helpers/pkg/github.com/point-c/generator-helpers/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/generator_helpers/pkg/github.com/point-c/generator-helpers/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package generator_helpers
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/point-c/generator-helpers"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#Check">func Check(err error)</a></dd>
+			
+				
+				<dd><a href="#EnvDollar">func EnvDollar() string</a></dd>
+			
+				
+				<dd><a href="#EnvGoArch">func EnvGoArch() string</a></dd>
+			
+				
+				<dd><a href="#EnvGoFile">func EnvGoFile() string</a></dd>
+			
+				
+				<dd><a href="#EnvGoLine">func EnvGoLine() int</a></dd>
+			
+				
+				<dd><a href="#EnvGoOS">func EnvGoOS() string</a></dd>
+			
+				
+				<dd><a href="#EnvGoPackage">func EnvGoPackage() string</a></dd>
+			
+				
+				<dd><a href="#EnvGoRoot">func EnvGoRoot() string</a></dd>
+			
+				
+				<dd><a href="#EnvOrDefault">func EnvOrDefault(key, def string) string</a></dd>
+			
+				
+				<dd><a href="#EnvOrDefaultInt">func EnvOrDefaultInt(key string, def int) int</a></dd>
+			
+				
+				<dd><a href="#EnvPath">func EnvPath() string</a></dd>
+			
+				
+				<dd><a href="#Exec">func Exec[T Template, D any](tmpl T, d D, startTemplate string) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#ExecTemplate">func ExecTemplate[T Template, D any](tmpl T, dot D, name string) []byte</a></dd>
+			
+				
+				<dd><a href="#Generate">func Generate[T Template, D any](tmpl T, dot D, name, out string)</a></dd>
+			
+				
+				<dd><a href="#GoFmt">func GoFmt(src []byte) (dst []byte, err error)</a></dd>
+			
+				
+				<dd><a href="#GoFmtReader">func GoFmtReader(r io.Reader) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#IfStringEmptyUseDefault">func IfStringEmptyUseDefault(s, def string) string</a></dd>
+			
+				
+				<dd><a href="#Must">func Must[T any](t T, err error) T</a></dd>
+			
+				
+				<dd><a href="#NewTemplate">func NewTemplate[T Template](templates fs.FS, funcs map[string]any) T</a></dd>
+			
+				
+				<dd><a href="#OutputFilename">func OutputFilename(original string) string</a></dd>
+			
+				
+				<dd><a href="#TestOutputFilename">func TestOutputFilename(original string) string</a></dd>
+			
+				
+				<dd><a href="#UnmarshalYAML">func UnmarshalYAML[T any](filename string) (v T, err error)</a></dd>
+			
+				
+				<dd><a href="#init">func init()</a></dd>
+			
+			
+				
+				<dd><a href="#Template">type Template</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="https://github.com/point-c/generator_helpers/blob/main/env.go">env.go</a>
+			
+				<a href="https://github.com/point-c/generator_helpers/blob/main/errors.go">errors.go</a>
+			
+				<a href="https://github.com/point-c/generator_helpers/blob/main/gocode.go">gocode.go</a>
+			
+				<a href="https://github.com/point-c/generator_helpers/blob/main/templates.go">templates.go</a>
+			
+				<a href="https://github.com/point-c/generator_helpers/blob/main/yaml.go">yaml.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="EnvKeyGoArch">EnvKeyGoArch</span>    = &#34;GOARCH&#34;
+    <span id="EnvKeyGoOS">EnvKeyGoOS</span>      = &#34;GOOS&#34;
+    <span id="EnvKeyGoFile">EnvKeyGoFile</span>    = &#34;GOFILE&#34;
+    <span id="EnvKeyGoLine">EnvKeyGoLine</span>    = &#34;GOLINE&#34;
+    <span id="EnvKeyGoPackage">EnvKeyGoPackage</span> = &#34;GOPACKAGE&#34;
+    <span id="EnvKeyGoRoot">EnvKeyGoRoot</span>    = &#34;GOROOT&#34;
+    <span id="EnvKeyDollar">EnvKeyDollar</span>    = &#34;DOLLAR&#34;
+    <span id="EnvKeyPath">EnvKeyPath</span>      = &#34;PATH&#34;
+)</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="EnvDefaultGoPackage">EnvDefaultGoPackage</span> = &#34;generator_helpers&#34;
+    <span id="EnvDefaultGoFile">EnvDefaultGoFile</span>    = &#34;&#34;
+    <span id="EnvDefaultGoArch">EnvDefaultGoArch</span>    = <a href="https://pkg.go.dev/runtime/">runtime</a>.<a href="https://pkg.go.dev/runtime/#GOARCH">GOARCH</a>
+    <span id="EnvDefaultGoOS">EnvDefaultGoOS</span>      = <a href="https://pkg.go.dev/runtime/">runtime</a>.<a href="https://pkg.go.dev/runtime/#GOOS">GOOS</a>
+    <span id="EnvDefaultGoLine">EnvDefaultGoLine</span>    = 0
+    <span id="EnvDefaultDollar">EnvDefaultDollar</span>    = &#34;$&#34;
+    <span id="EnvDefaultPath">EnvDefaultPath</span>      = <a href="https://pkg.go.dev/os/">os</a>.<a href="https://pkg.go.dev/os/#Getenv">Getenv</a>(<a href="#EnvKeyPath">EnvKeyPath</a>)
+    <span id="EnvDefaultGoRoot">EnvDefaultGoRoot</span>    = <a href="https://pkg.go.dev/os/">os</a>.<a href="https://pkg.go.dev/os/#Getenv">Getenv</a>(<a href="#EnvKeyGoRoot">EnvKeyGoRoot</a>)
+)</pre>
+			
+				
+				<pre>var <span id="exit">exit</span> = <a href="https://pkg.go.dev/os/">os</a>.<a href="https://pkg.go.dev/os/#Exit">Exit</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="Check">func <a href="https://github.com/point-c/generator_helpers/blob/main/errors.go#L21">Check</a>
+				<a class="permalink" href="#Check">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Check(err <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			<p>Check takes an error as an argument. If the error is not nil, it logs the error and exits the program.
+
+			
+			
+
+		
+			
+			
+			<h2 id="EnvDollar">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L50">EnvDollar</a>
+				<a class="permalink" href="#EnvDollar">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvDollar() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoArch">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L46">EnvGoArch</a>
+				<a class="permalink" href="#EnvGoArch">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoArch() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoFile">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L44">EnvGoFile</a>
+				<a class="permalink" href="#EnvGoFile">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoFile() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoLine">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L48">EnvGoLine</a>
+				<a class="permalink" href="#EnvGoLine">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoLine() <a href="https://pkg.go.dev/builtin/#int">int</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoOS">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L47">EnvGoOS</a>
+				<a class="permalink" href="#EnvGoOS">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoOS() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoPackage">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L45">EnvGoPackage</a>
+				<a class="permalink" href="#EnvGoPackage">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoPackage() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvGoRoot">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L49">EnvGoRoot</a>
+				<a class="permalink" href="#EnvGoRoot">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvGoRoot() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvOrDefault">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L53">EnvOrDefault</a>
+				<a class="permalink" href="#EnvOrDefault">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvOrDefault(key, def <a href="https://pkg.go.dev/builtin/#string">string</a>) <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvOrDefaultInt">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L57">EnvOrDefaultInt</a>
+				<a class="permalink" href="#EnvOrDefaultInt">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvOrDefaultInt(key <a href="https://pkg.go.dev/builtin/#string">string</a>, def <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EnvPath">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L51">EnvPath</a>
+				<a class="permalink" href="#EnvPath">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnvPath() <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Exec">func <a href="https://github.com/point-c/generator_helpers/blob/main/templates.go#L49">Exec</a>
+				<a class="permalink" href="#Exec">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Exec[T <a href="#Template">Template</a>, D <a href="https://pkg.go.dev/builtin/#any">any</a>](tmpl T, d D, startTemplate <a href="https://pkg.go.dev/builtin/#string">string</a>) ([]<a href="https://pkg.go.dev/builtin/#byte">byte</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			<p>Exec executes a template with the provided data and returns the result as a byte slice.
+
+			
+			
+
+		
+			
+			
+			<h2 id="ExecTemplate">func <a href="https://github.com/point-c/generator_helpers/blob/main/templates.go#L38">ExecTemplate</a>
+				<a class="permalink" href="#ExecTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExecTemplate[T <a href="#Template">Template</a>, D <a href="https://pkg.go.dev/builtin/#any">any</a>](tmpl T, dot D, name <a href="https://pkg.go.dev/builtin/#string">string</a>) []<a href="https://pkg.go.dev/builtin/#byte">byte</a></pre>
+			<p>ExecTemplate executes a template and returns the generated content as a byte slice.
+It assumes the output is go source code and formats the output.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Generate">func <a href="https://github.com/point-c/generator_helpers/blob/main/templates.go#L31">Generate</a>
+				<a class="permalink" href="#Generate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Generate[T <a href="#Template">Template</a>, D <a href="https://pkg.go.dev/builtin/#any">any</a>](tmpl T, dot D, name, out <a href="https://pkg.go.dev/builtin/#string">string</a>)</pre>
+			<p>Generate creates and writes a file using a template and data.
+
+			
+			
+
+		
+			
+			
+			<h2 id="GoFmt">func <a href="https://github.com/point-c/generator_helpers/blob/main/gocode.go#L9">GoFmt</a>
+				<a class="permalink" href="#GoFmt">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GoFmt(src []<a href="https://pkg.go.dev/builtin/#byte">byte</a>) (dst []<a href="https://pkg.go.dev/builtin/#byte">byte</a>, err <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			<p>GoFmt formats Go source code, returning the formatted code or the original and an error.
+
+			
+			
+
+		
+			
+			
+			<h2 id="GoFmtReader">func <a href="https://github.com/point-c/generator_helpers/blob/main/gocode.go#L19">GoFmtReader</a>
+				<a class="permalink" href="#GoFmtReader">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GoFmtReader(r <a href="https://pkg.go.dev/io/">io</a>.<a href="https://pkg.go.dev/io/#Reader">Reader</a>) ([]<a href="https://pkg.go.dev/builtin/#byte">byte</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			<p>GoFmtReader functions similarly to <a href="#GoFmt">GoFmt</a> but accepts an io.Reader as input.
+It reads the source code from the reader, formats it, and returns the formatted code and any error encountered.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IfStringEmptyUseDefault">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L65">IfStringEmptyUseDefault</a>
+				<a class="permalink" href="#IfStringEmptyUseDefault">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IfStringEmptyUseDefault(s, def <a href="https://pkg.go.dev/builtin/#string">string</a>) <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Must">func <a href="https://github.com/point-c/generator_helpers/blob/main/errors.go#L12">Must</a>
+				<a class="permalink" href="#Must">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Must[T <a href="https://pkg.go.dev/builtin/#any">any</a>](t T, err <a href="https://pkg.go.dev/builtin/#error">error</a>) T</pre>
+			<p>Must takes a value and an error. If the error is not nil, it logs the error and exits the program.
+Otherwise, it returns the value.
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewTemplate">func <a href="https://github.com/point-c/generator_helpers/blob/main/templates.go#L19">NewTemplate</a>
+				<a class="permalink" href="#NewTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewTemplate[T <a href="#Template">Template</a>](templates <a href="https://pkg.go.dev/io/fs/">fs</a>.<a href="https://pkg.go.dev/io/fs/#FS">FS</a>, funcs map[<a href="https://pkg.go.dev/builtin/#string">string</a>]<a href="https://pkg.go.dev/builtin/#any">any</a>) T</pre>
+			<p>NewTemplate initializes a new template, either text or HTML, with provided functions and file system.
+
+			
+			
+
+		
+			
+			
+			<h2 id="OutputFilename">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L10">OutputFilename</a>
+				<a class="permalink" href="#OutputFilename">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func OutputFilename(original <a href="https://pkg.go.dev/builtin/#string">string</a>) <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestOutputFilename">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L14">TestOutputFilename</a>
+				<a class="permalink" href="#TestOutputFilename">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestOutputFilename(original <a href="https://pkg.go.dev/builtin/#string">string</a>) <a href="https://pkg.go.dev/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="UnmarshalYAML">func <a href="https://github.com/point-c/generator_helpers/blob/main/yaml.go#L11">UnmarshalYAML</a>
+				<a class="permalink" href="#UnmarshalYAML">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func UnmarshalYAML[T <a href="https://pkg.go.dev/builtin/#any">any</a>](filename <a href="https://pkg.go.dev/builtin/#string">string</a>) (v T, err <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			<p>UnmarshalYAML reads YAML data from a file and unmarshals it into a value.
+It returns the unmarshaled value and any error encountered.
+
+			
+			
+
+		
+			
+			
+			<h2 id="init">func <a href="https://github.com/point-c/generator_helpers/blob/main/env.go#L29">init</a>
+				<a class="permalink" href="#init">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func init()</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Template">type <a href="https://github.com/point-c/generator_helpers/blob/main/templates.go#L14">Template</a>
+				<a class="permalink" href="#Template">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Template interface abstracts the common functionality for text and HTML templates.
+
+			<pre>type Template interface {
+    ExecuteTemplate(wr <a href="https://pkg.go.dev/io/">io</a>.<a href="https://pkg.go.dev/io/#Writer">Writer</a>, name <a href="https://pkg.go.dev/builtin/#string">string</a>, data <a href="https://pkg.go.dev/builtin/#any">any</a>) <a href="https://pkg.go.dev/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.21.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

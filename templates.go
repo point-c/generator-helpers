@@ -10,10 +10,12 @@ import (
 	text_template "text/template"
 )
 
+// Template interface abstracts the common functionality for text and HTML templates.
 type Template interface {
 	ExecuteTemplate(wr io.Writer, name string, data any) error
 }
 
+// NewTemplate initializes a new template, either text or HTML, with provided functions and file system.
 func NewTemplate[T Template](templates fs.FS, funcs map[string]any) T {
 	var t Template
 	switch any(*new(T)).(type) {
@@ -25,11 +27,14 @@ func NewTemplate[T Template](templates fs.FS, funcs map[string]any) T {
 	return t.(T)
 }
 
+// Generate creates and writes a file using a template and data.
 func Generate[T Template, D any](tmpl T, dot D, name, out string) {
 	b := ExecTemplate[T, D](tmpl, dot, name)
 	Check(os.WriteFile(out, b, os.ModePerm))
 }
 
+// ExecTemplate executes a template and returns the generated content as a byte slice.
+// It assumes the output is go source code and formats the output.
 func ExecTemplate[T Template, D any](tmpl T, dot D, name string) []byte {
 	b := Must(Exec(tmpl, dot, name))
 	bf, err := GoFmt(b)
@@ -40,6 +45,7 @@ func ExecTemplate[T Template, D any](tmpl T, dot D, name string) []byte {
 	return bf
 }
 
+// Exec executes a template with the provided data and returns the result as a byte slice.
 func Exec[T Template, D any](tmpl T, d D, startTemplate string) ([]byte, error) {
 	var buf bytes.Buffer
 	if err := tmpl.ExecuteTemplate(&buf, startTemplate, d); err != nil {

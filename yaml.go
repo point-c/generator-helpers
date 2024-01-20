@@ -6,6 +6,8 @@ import (
 	"os"
 )
 
+// UnmarshalYAML reads YAML data from a file and unmarshals it into a value.
+// It returns the unmarshaled value and any error encountered.
 func UnmarshalYAML[T any](filename string) (v T, err error) {
 	var f *os.File
 	f, err = os.Open(filename)
