@@ -54,6 +54,14 @@ value := generator_helpers.Must(getValue())
 generator_helpers.Check(err)
 ```
 
+## Testing
+
+The package includes tests that demonstrate its functionality. Use Go's testing tools to run the tests:
+
+```bash
+go test
+```
+
 ## Godocs
 
 To regenerate godocs:
